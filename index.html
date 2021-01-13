@@ -26,6 +26,8 @@
     <br>
     <div class="input-group">
         <span class="input-group-text">API URL:</span>
+        <button class="btn btn-outline-secondary" type="button" onclick="myShows('https://api1590508944.apicollaps.cc/list?token=eedefb541aeba871dcfc756e6b31c02e&type=films&limit=99')">FILMS</button>
+        <button class="btn btn-outline-secondary" type="button" onclick="myShows('https://api1590508944.apicollaps.cc/list?token=eedefb541aeba871dcfc756e6b31c02e&type=serials&limit=99')">SERIES</button>
         <input name="url" id="url" aria-label="URL" class="form-control" type="text" placeholder="URL" value="https://api1590508944.apicollaps.cc/list?token=eedefb541aeba871dcfc756e6b31c02e&type=serials&limit=99">
         <button class="btn btn-outline-secondary" type="button" id="btn" onclick="myShows()">GO</button>
     </div>
@@ -44,9 +46,10 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script>
-    function myShows() {
+    function myShows(u) {
         var shows = document.querySelector('#shows');
         shows.innerHTML = '';
+        if (u) {document.querySelector('#url').value = u;}
         var url = document.querySelector('#url').value;
         var list = httpGet(url);
         var row = document.createElement('div');
